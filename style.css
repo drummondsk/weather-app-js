@@ -5,14 +5,14 @@
     box-sizing: border-box;
 }
 body{
-    background: #222;
+    background: #0e7198;
 }
 .card{
     width: 90% ; 
     max-width: 470px;
-    background: linear-gradient(135deg, #00feba, #5b548a);
+    background: linear-gradient(135deg, #11a7e7, #045986);
     color: #fff;
-    margin: 100px auto 0; 
+    margin: 20px auto 0; 
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
@@ -51,6 +51,16 @@ body{
     width: 170px;
     margin-top: 30px;
 }
+.card-container-header{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    font-size: 60px;
+    font-weight: 500;
+    margin-top: 10px;
+    padding: 20px 500px;
+    text-align: center;
+
+}
 .weather h1{
     font-size: 80px;
     font-weight: 500;
@@ -79,4 +89,14 @@ body{
 .humidty, .wind{ 
     font-size: 28px;
     margin-top: -6px;
+}
+.weather{
+    display: none;
+}
+.error{
+    text-align: left;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
 }
