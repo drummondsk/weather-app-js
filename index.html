@@ -37,64 +37,11 @@
                         </div>
                     </div>
                 </div>
+            </div class="toggle-container">
+                <button class="toggle-btn">Celsius / Fahrenheit</button>
             </div>
         </div>
     </div>
-    <script>
-        const apiKey = "a95fcdd824f2d88905588b8fb171a049";
-        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
-
-        const searchBox = document.querySelector(".search input");
-        const searchBtn = document.querySelector(".search button");
-        const weatherIcon = document.querySelector(".weather-icon");
-
-        async function checkWeather(city){ 
-            const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
-            var data = await response.json();
-            responseErrorCheck(response);
-
-            document.querySelector(".city").innerHTML = data.name
-            document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°c";
-            document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
-            document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
-
-            weatherDescription = data.weather[0].main;
-            toggleImageBasedOnDescription(weatherDescription);
-
-            document.querySelector(".weather").style.display = "block";
-        }
-        function responseErrorCheck(response){
-            if (response.status == 400 || response.status == 404){
-                document.querySelector(".error").style.display = "block"
-                document.querySelector(".weather").style.display = "none"
-
-            }else if (response.status == 200){
-                document.querySelector(".error").style.display = "none"
-                document.querySelector(".weather").style.display = "block"
-            }
-        }
-        function toggleImageBasedOnDescription(weatherDescription){
-            if (weatherDescription == "Clouds"){
-                weatherIcon.src ="images/clouds.png";
-
-            }else if (weatherDescription == "Clear"){
-                weatherIcon.src ="images/clear.png";
-            
-            }else if(weatherDescription == "Rain"){
-                weatherIcon.src ="images/rain.png"
-            
-            }else if(weatherDescription == "Drizzle"){
-                weatherIcon.src ="images/drizzle.png"
-
-            }else if(weatherDescription == "Mist"){
-                weatherIcon.src ="images/mist.png"
-            };
-        }
-
-        searchBtn.addEventListener("click", ()=>{
-            checkWeather(searchBox.value);
-        })
-        
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
